@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum & Classical Potential Well Simulation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        header {
+            background-color: #1e293b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #0f172a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+        .simulation-box {
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            padding: 20px;
+            text-align: center;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .control-panel {
+            margin-top: 15px;
+            padding: 10px;
+            background: #edf2f7;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>การพัฒนาเว็บไซต์สื่อการสอนสำหรับการศึกษาอนุภาคในบ่อศักย์</h1>
+        <p>โดย นักศึกษาปริญญาตรี คณะวิทยาศาสตร์ สาขาฟิสิกส์ (quantum midnights)</p>
+    </header>
+
+    <div class="container">
+        <h2>1. บทนำ (Introduction)</h2>
+        <p>ยินดีต้อนรับสู่บทเรียนแบบโต้ตอบ (Active Learning) โครงงานนี้สร้างขึ้นเพื่อเปรียบเทียบพฤติกรรมของอนุภาคในโลกคลาสสิกและโลกควอนตัมผ่านภาพจำลองคอมพิวเตอร์</p>
+
+        <h2>2. บ่อศักย์เชิงคลาสสิก (Classical Potential Well)</h2>
+        <p>ในโลกคลาสสิก อนุภาคเปรียบเหมือนลูกบอลที่กลิ้งกลับไปกลับมาในราง พลังงานมีค่าต่อเนื่องและไม่สามารถทะลุผ่านกำแพงศักย์ออกไปได้</p>
+
+        <h2>3. อนุภาคในกล่องเชิงควอนตัม (Quantum Particle in a Box)</h2>
+        <p>ในโลกควอนตัม อนุภาคจะแสดงพฤติกรรมเป็นคลื่นนิ่ง พลังงานถูกจำกัดเป็นขั้น ๆ (Quantized) และมีความน่าจะเป็นในการพบอนุภาคที่แตกต่างกันไปในแต่ละบริเวณ</p>
+
+        <h2>4. บ่อศักย์คู่และการทะลุผ่านควอนตัม (Double Well & Quantum Tunneling)</h2>
+        <div class="simulation-box">
+            📊 [พื้นที่สำหรับแสดงหน้าจอ Simulation ในอนาคต]
+            <div class="control-panel">
+                <label for="energySlider"><b>ทดสอบระบบ Active Learning (ลองปรับแถบพลังงาน):</b> </label>
+                <input type="range" id="energySlider" min="1" max="10" value="1">
+            </div>
+        </div>
+
+        <h2>5. แบบทดสอบความเข้าใจ (Quiz)</h2>
+        <p>พื้นที่สำหรับทดสอบความรู้หลังจากศึกษาแบบจำลองสถานการณ์เสร็จสิ้น</p>
+
+        <h2>6. เอกสารอ้างอิง (References)</h2>
+        <p>อ้างอิงแนวคิดและกระบวนการเรียนรู้จากบทความวิจัยสากลทางด้านฟิสิกส์ศึกษา</p>
+    </div>
+
+</body>
+</html>
