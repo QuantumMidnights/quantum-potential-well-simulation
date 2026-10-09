@@ -1,87 +1,474 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum & Classical Potential Well Simulation</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f7f6;
-            color: #333;
-        }
-        header {
-            background-color: #1e293b;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #0f172a;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 8px;
-        }
-        .simulation-box {
-            background: #f8fafc;
-            border: 2px dashed #cbd5e1;
-            padding: 20px;
-            text-align: center;
-            border-radius: 6px;
-            margin: 20px 0;
-        }
-        .control-panel {
-            margin-top: 15px;
-            padding: 10px;
-            background: #edf2f7;
-            border-radius: 6px;
-        }
-    </style>
+
+    <title>MidnightQuantum | Particle in a Box</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <header>
-        <h1>การพัฒนาเว็บไซต์สื่อการสอนสำหรับการศึกษาอนุภาคในบ่อศักย์</h1>
-        <p>โดย นักศึกษาปริญญาตรี คณะวิทยาศาสตร์ สาขาฟิสิกส์ (quantum midnights)</p>
-    </header>
+    <!-- ================= HEADER ================= -->
 
-    <div class="container">
-        <h2>1. บทนำ (Introduction)</h2>
-        <p>ยินดีต้อนรับสู่บทเรียนแบบโต้ตอบ (Active Learning) โครงงานนี้สร้างขึ้นเพื่อเปรียบเทียบพฤติกรรมของอนุภาคในโลกคลาสสิกและโลกควอนตัมผ่านภาพจำลองคอมพิวเตอร์</p>
+    <header class="topbar">
 
-        <h2>2. บ่อศักย์เชิงคลาสสิก (Classical Potential Well)</h2>
-        <p>ในโลกคลาสสิก อนุภาคเปรียบเหมือนลูกบอลที่กลิ้งกลับไปกลับมาในราง พลังงานมีค่าต่อเนื่องและไม่สามารถทะลุผ่านกำแพงศักย์ออกไปได้</p>
+        <div class="brand">
+            <div class="brand-mark">MQ</div>
 
-        <h2>3. อนุภาคในกล่องเชิงควอนตัม (Quantum Particle in a Box)</h2>
-        <p>ในโลกควอนตัม อนุภาคจะแสดงพฤติกรรมเป็นคลื่นนิ่ง พลังงานถูกจำกัดเป็นขั้น ๆ (Quantized) และมีความน่าจะเป็นในการพบอนุภาคที่แตกต่างกันไปในแต่ละบริเวณ</p>
-
-        <h2>4. บ่อศักย์คู่และการทะลุผ่านควอนตัม (Double Well & Quantum Tunneling)</h2>
-        <div class="simulation-box">
-            📊 [พื้นที่สำหรับแสดงหน้าจอ Simulation ในอนาคต]
-            <div class="control-panel">
-                <label for="energySlider"><b>ทดสอบระบบ Active Learning (ลองปรับแถบพลังงาน):</b> </label>
-                <input type="range" id="energySlider" min="1" max="10" value="1">
+            <div>
+                <h1>MidnightQuantum</h1>
+                <p>Quantum Physics Learning Laboratory</p>
             </div>
         </div>
 
-        <h2>5. แบบทดสอบความเข้าใจ (Quiz)</h2>
-        <p>พื้นที่สำหรับทดสอบความรู้หลังจากศึกษาแบบจำลองสถานการณ์เสร็จสิ้น</p>
+        <div class="page-title">
+            <span>SIMULATION</span>
+            <strong>Particle in a Box</strong>
+        </div>
 
-        <h2>6. เอกสารอ้างอิง (References)</h2>
-        <p>อ้างอิงแนวคิดและกระบวนการเรียนรู้จากบทความวิจัยสากลทางด้านฟิสิกส์ศึกษา</p>
-    </div>
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-container">
+
+
+        <!-- ================= SIMULATION AREA ================= -->
+
+        <section class="simulation-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">QUANTUM SYSTEM</span>
+                    <h2>Particle in a Box</h2>
+                </div>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    LIVE SIMULATION
+                </div>
+
+            </div>
+
+
+            <div class="simulation-layout">
+
+
+                <!-- MAIN GRAPH -->
+
+                <div class="graph-panel">
+
+                    <div class="graph-header">
+
+                        <div>
+                            <h3>Wavefunction</h3>
+                            <p>
+                                Spatial probability amplitude
+                            </p>
+                        </div>
+
+                        <div class="graph-mode">
+
+                            <button
+                                id="waveButton"
+                                class="mode-button active">
+                                ψ(x)
+                            </button>
+
+                            <button
+                                id="probabilityButton"
+                                class="mode-button">
+                                |ψ(x)|²
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="canvas-wrapper">
+
+                        <canvas id="simulationCanvas"></canvas>
+
+                    </div>
+
+
+                    <div class="axis-labels">
+
+                        <span>x = 0</span>
+
+                        <span>
+                            Position x
+                        </span>
+
+                        <span>
+                            x = L
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ENERGY SPECTRUM -->
+
+                <aside class="energy-panel">
+
+                    <div class="panel-title">
+                        <span class="eyebrow">
+                            ENERGY
+                        </span>
+
+                        <h3>
+                            Energy Spectrum
+                        </h3>
+                    </div>
+
+
+                    <div class="energy-levels">
+
+                        <div class="energy-level">
+                            <span>E₅</span>
+                            <div class="level-line"></div>
+                        </div>
+
+                        <div class="energy-level">
+                            <span>E₄</span>
+                            <div class="level-line"></div>
+                        </div>
+
+                        <div class="energy-level">
+                            <span>E₃</span>
+                            <div class="level-line"></div>
+                        </div>
+
+                        <div class="energy-level">
+                            <span>E₂</span>
+                            <div class="level-line"></div>
+                        </div>
+
+                        <div class="energy-level selected">
+                            <span>E₁</span>
+                            <div class="level-line"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="current-energy">
+
+                        <span>Current Energy</span>
+
+                        <strong id="energyValue">
+                            0.0000
+                        </strong>
+
+                        <small>
+                            dimensionless units
+                        </small>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTROLS + PHYSICS ================= -->
+
+        <section class="lower-grid">
+
+
+            <!-- EXPERIMENT CONTROLS -->
+
+            <div class="control-panel">
+
+                <div class="panel-title">
+
+                    <span class="eyebrow">
+                        EXPERIMENT
+                    </span>
+
+                    <h3>
+                        Simulation Controls
+                    </h3>
+
+                    <p>
+                        Change the quantum state and box size.
+                    </p>
+
+                </div>
+
+
+                <!-- QUANTUM NUMBER -->
+
+                <div class="control-group">
+
+                    <div class="control-label">
+
+                        <label for="nSlider">
+                            Quantum Number
+                        </label>
+
+                        <span id="nValue">
+                            1
+                        </span>
+
+                    </div>
+
+                    <input
+                        type="range"
+                        id="nSlider"
+                        min="1"
+                        max="5"
+                        value="1"
+                        step="1">
+
+                    <div class="range-info">
+                        <span>n = 1</span>
+                        <span>n = 5</span>
+                    </div>
+
+                </div>
+
+
+                <!-- BOX LENGTH -->
+
+                <div class="control-group">
+
+                    <div class="control-label">
+
+                        <label for="lSlider">
+                            Box Length
+                        </label>
+
+                        <span id="lValue">
+                            5.0
+                        </span>
+
+                    </div>
+
+                    <input
+                        type="range"
+                        id="lSlider"
+                        min="1"
+                        max="5"
+                        value="5"
+                        step="0.1">
+
+                    <div class="range-info">
+                        <span>L = 1</span>
+                        <span>L = 5</span>
+                    </div>
+
+                </div>
+
+
+                <div class="experiment-note">
+
+                    <span class="note-icon">✦</span>
+
+                    <p>
+                        Explore how changing
+                        <strong>n</strong> and
+                        <strong>L</strong>
+                        affects the quantum state.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHYSICS PANEL -->
+
+            <div class="physics-panel">
+
+                <div class="panel-title">
+
+                    <span class="eyebrow">
+                        PHYSICS
+                    </span>
+
+                    <h3>
+                        Particle in a Box
+                    </h3>
+
+                </div>
+
+
+                <div class="equation-box">
+
+                    <span class="equation-label">
+                        Energy eigenvalue
+                    </span>
+
+                    <div class="equation">
+                        E<sub>n</sub> =
+                        <span>
+                            n²π²ℏ²
+                        </span>
+                        /
+                        <span>
+                            2mL²
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="physics-values">
+
+                    <div class="physics-value">
+
+                        <span>
+                            Quantum number
+                        </span>
+
+                        <strong id="physicsN">
+                            n = 1
+                        </strong>
+
+                    </div>
+
+                    <div class="physics-value">
+
+                        <span>
+                            Box length
+                        </span>
+
+                        <strong id="physicsL">
+                            L = 5.0
+                        </strong>
+
+                    </div>
+
+                    <div class="physics-value">
+
+                        <span>
+                            Energy
+                        </span>
+
+                        <strong id="physicsEnergy">
+                            0.1974
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="physics-description">
+
+                    <p>
+                        The particle is confined within
+                        an infinite potential well.
+                        Only discrete energy states
+                        are allowed.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= EXPERIMENT MODE ================= -->
+
+        <section class="experiment-section">
+
+            <div class="experiment-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        LEARNING ACTIVITY
+                    </span>
+
+                    <h2>
+                        Explore & Predict
+                    </h2>
+
+                </div>
+
+                <span class="experiment-number">
+                    EXP 01
+                </span>
+
+            </div>
+
+
+            <div class="experiment-question">
+
+                <div class="question-number">
+                    01
+                </div>
+
+                <div>
+
+                    <h3>
+                        What happens to the energy
+                        when the box becomes wider?
+                    </h3>
+
+                    <p>
+                        Make a prediction before
+                        changing the box length.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="prediction-options">
+
+                <button class="prediction">
+                    Energy increases
+                </button>
+
+                <button class="prediction">
+                    Energy decreases
+                </button>
+
+                <button class="prediction">
+                    Energy stays the same
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <span>
+            MidnightQuantum
+        </span>
+
+        <span>
+            Interactive Quantum Mechanics
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>

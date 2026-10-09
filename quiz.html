@@ -1,0 +1,96 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MidnightQuantum | Learning Assessment</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="brand-mark">MQ</div>
+        <div>
+            <h1>MidnightQuantum</h1>
+            <p>Quantum Physics Learning Laboratory</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">LEARNING & ASSESSMENT</p>
+            <h2>Test Your Quantum Knowledge</h2>
+            <p>Explore the physics. Test your understanding. Learn from your results.</p>
+        </section>
+
+        <section class="menu-grid">
+            <button class="menu-card" data-mode="pre">
+                <span class="card-icon">01</span>
+                <h3>Pre-test</h3>
+                <p>Assess your knowledge before learning.</p>
+                <span class="card-link">Start test →</span>
+            </button>
+
+            <button class="menu-card" data-mode="post">
+                <span class="card-icon">02</span>
+                <h3>Post-test</h3>
+                <p>Assess your knowledge after learning.</p>
+                <span class="card-link">Start test →</span>
+            </button>
+
+            <button class="menu-card" data-mode="quiz">
+                <span class="card-icon">03</span>
+                <h3>Practice Quiz</h3>
+                <p>Practice quantum physics with feedback.</p>
+                <span class="card-link">Start practice →</span>
+            </button>
+        </section>
+
+        <section id="quizSection" class="quiz-panel hidden">
+            <div class="quiz-heading">
+                <div>
+                    <p id="modeLabel" class="eyebrow">ASSESSMENT</p>
+                    <h2 id="quizTitle">Pre-test</h2>
+                </div>
+                <button id="backButton" class="secondary-button">← Back</button>
+            </div>
+
+            <div class="progress-track">
+                <div id="progressBar"></div>
+            </div>
+
+            <p id="questionCount" class="muted"></p>
+            <h3 id="questionText"></h3>
+            <div id="optionsContainer"></div>
+
+            <p id="feedback" aria-live="polite"></p>
+
+            <div class="quiz-actions">
+                <button id="submitButton" class="primary-button">
+                    Check answer
+                </button>
+                <button id="nextButton" class="primary-button hidden">
+                    Next question →
+                </button>
+            </div>
+        </section>
+
+        <section id="resultSection" class="result-panel hidden">
+            <p class="eyebrow">ASSESSMENT RESULT</p>
+            <h2 id="resultTitle">Test completed</h2>
+            <p class="score"><span id="scoreValue">0</span>%</p>
+            <p id="resultMessage"></p>
+            <button id="retryButton" class="primary-button">Try again</button>
+            <button id="homeButton" class="secondary-button">Back to home</button>
+        </section>
+    </main>
+
+    <footer>
+        MidnightQuantum · Interactive Quantum Physics Learning
+    </footer>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
+```

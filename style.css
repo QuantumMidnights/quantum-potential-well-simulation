@@ -1,0 +1,1002 @@
+/* =========================================
+   MidnightQuantum V2
+   Modern Scientific Quantum Laboratory
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #172554;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --violet: #7c3aed;
+
+    --text: #172033;
+    --muted: #64748b;
+
+    --background: #f5f7fb;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+
+    --shadow: 0 10px 35px rgba(30, 41, 59, 0.07);
+}
+
+body {
+    margin: 0;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fafc 0%,
+            #f1f5f9 100%
+        );
+
+    color: var(--text);
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.topbar {
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    backdrop-filter: blur(12px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--blue)
+        );
+
+    color: white;
+
+    font-weight: 800;
+    font-size: 14px;
+
+    letter-spacing: 0.5px;
+}
+
+.brand h1 {
+    margin: 0;
+
+    font-size: 18px;
+
+    color: var(--navy);
+
+    letter-spacing: -0.3px;
+}
+
+.brand p {
+    margin: 3px 0 0;
+
+    font-size: 11px;
+
+    color: var(--muted);
+
+    letter-spacing: 0.4px;
+}
+
+.page-title {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.page-title span {
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: var(--blue);
+}
+
+.page-title strong {
+    font-size: 14px;
+
+    color: var(--navy);
+}
+
+
+/* =========================================
+   MAIN
+   ========================================= */
+
+.main-container {
+    width: min(1280px, 92%);
+
+    margin: 45px auto 70px;
+}
+
+
+/* =========================================
+   GENERAL
+   ========================================= */
+
+.simulation-section,
+.control-panel,
+.physics-panel,
+.experiment-section {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow: var(--shadow);
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--blue);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+}
+
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+
+/* =========================================
+   SIMULATION HEADER
+   ========================================= */
+
+.simulation-section {
+    padding: 28px;
+}
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    font-size: 26px;
+
+    color: var(--navy);
+
+    letter-spacing: -0.7px;
+}
+
+.status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 13px;
+
+    border-radius: 30px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #3b82f6;
+
+    box-shadow:
+        0 0 0 4px #dbeafe;
+}
+
+
+/* =========================================
+   SIMULATION LAYOUT
+   ========================================= */
+
+.simulation-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        245px;
+
+    gap: 20px;
+}
+
+
+/* =========================================
+   GRAPH
+   ========================================= */
+
+.graph-panel {
+    min-width: 0;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: #fbfdff;
+}
+
+.graph-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 22px;
+
+    border-bottom: 1px solid var(--border);
+
+    background: white;
+}
+
+.graph-header h3 {
+    margin: 0 0 4px;
+
+    color: var(--navy);
+
+    font-size: 17px;
+}
+
+.graph-header p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+.graph-mode {
+    display: flex;
+
+    gap: 6px;
+
+    padding: 4px;
+
+    border-radius: 9px;
+
+    background: #f1f5f9;
+}
+
+.mode-button {
+    border: none;
+
+    padding: 7px 12px;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.mode-button.active {
+    background: white;
+
+    color: var(--blue);
+
+    box-shadow:
+        0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+.mode-button:hover {
+    color: var(--blue);
+}
+
+
+/* =========================================
+   CANVAS
+   ========================================= */
+
+.canvas-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    height: 430px;
+
+    padding: 20px;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f8fbff
+        );
+
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   AXIS
+   ========================================= */
+
+.axis-labels {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 0 25px 17px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   ENERGY PANEL
+   ========================================= */
+
+.energy-panel {
+    padding: 22px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f8faff
+        );
+}
+
+.panel-title h3 {
+    margin: 0;
+
+    color: var(--navy);
+
+    font-size: 17px;
+}
+
+.energy-levels {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    height: 275px;
+
+    gap: 28px;
+
+    margin-top: 25px;
+}
+
+.energy-level {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.energy-level span {
+    width: 22px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.level-line {
+    height: 3px;
+
+    flex: 1;
+
+    border-radius: 3px;
+
+    background: #cbd5e1;
+
+    transition: 0.2s;
+}
+
+.energy-level.selected span {
+    color: var(--blue);
+}
+
+.energy-level.selected .level-line {
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--violet)
+        );
+
+    box-shadow:
+        0 3px 10px rgba(37, 99, 235, 0.25);
+}
+
+.current-energy {
+    margin-top: 25px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid var(--border);
+}
+
+.current-energy span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+}
+
+.current-energy strong {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--navy);
+
+    font-size: 27px;
+
+    letter-spacing: -1px;
+}
+
+.current-energy small {
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   LOWER GRID
+   ========================================= */
+
+.lower-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    margin-top: 20px;
+}
+
+.control-panel,
+.physics-panel {
+    padding: 27px;
+}
+
+
+/* =========================================
+   CONTROLS
+   ========================================= */
+
+.panel-title p {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+.control-group {
+    margin-top: 28px;
+}
+
+.control-label {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.control-label label {
+    color: var(--text);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.control-label span {
+    padding: 5px 10px;
+
+    border-radius: 7px;
+
+    background: #eff6ff;
+
+    color: var(--blue);
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+input[type="range"] {
+    width: 100%;
+
+    height: 5px;
+
+    accent-color: var(--blue);
+
+    cursor: pointer;
+}
+
+.range-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 7px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+.experiment-note {
+    display: flex;
+
+    gap: 11px;
+
+    margin-top: 30px;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    background: #f8faff;
+
+    border: 1px solid #e0e7ff;
+}
+
+.note-icon {
+    color: var(--violet);
+
+    font-size: 16px;
+}
+
+.experiment-note p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   PHYSICS
+   ========================================= */
+
+.equation-box {
+    margin-top: 22px;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8faff,
+            #eef4ff
+        );
+
+    border: 1px solid #dbeafe;
+}
+
+.equation-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.equation {
+    color: var(--navy);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 25px;
+
+    text-align: center;
+}
+
+.physics-values {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.physics-value {
+    padding: 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: #fff;
+}
+
+.physics-value span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    margin-bottom: 5px;
+}
+
+.physics-value strong {
+    color: var(--navy);
+
+    font-size: 14px;
+}
+
+.physics-description {
+    margin-top: 18px;
+
+    padding-top: 17px;
+
+    border-top: 1px solid var(--border);
+}
+
+.physics-description p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   EXPERIMENT SECTION
+   ========================================= */
+
+.experiment-section {
+    margin-top: 20px;
+
+    padding: 28px;
+}
+
+.experiment-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+}
+
+.experiment-header h2 {
+    margin: 0;
+
+    color: var(--navy);
+
+    font-size: 23px;
+}
+
+.experiment-number {
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #f1f5f9;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.experiment-question {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8faff,
+            #ffffff
+        );
+
+    border: 1px solid var(--border);
+}
+
+.question-number {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--blue)
+        );
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+.experiment-question h3 {
+    margin: 0 0 6px;
+
+    color: var(--navy);
+
+    font-size: 16px;
+}
+
+.experiment-question p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.prediction-options {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 15px;
+}
+
+.prediction {
+    padding: 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.2s,
+        border 0.2s,
+        background 0.2s;
+}
+
+.prediction:hover {
+    transform: translateY(-2px);
+
+    border-color: #93c5fd;
+
+    background: #eff6ff;
+
+    color: var(--blue);
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 25px 6%;
+
+    border-top: 1px solid var(--border);
+
+    background: white;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 0.4px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .simulation-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .energy-panel {
+        display: none;
+    }
+
+    .lower-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        padding: 0 4%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .main-container {
+        width: 94%;
+
+        margin-top: 25px;
+    }
+
+    .simulation-section,
+    .control-panel,
+    .physics-panel,
+    .experiment-section {
+        padding: 20px;
+    }
+
+    .page-title {
+        display: none;
+    }
+
+    .graph-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .canvas-wrapper {
+        height: 330px;
+    }
+
+    .physics-values {
+        grid-template-columns: 1fr;
+    }
+
+    .prediction-options {
+        grid-template-columns: 1fr;
+    }
+}
