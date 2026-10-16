@@ -7,35 +7,46 @@
 
     <title>MidnightQuantum | Particle in a Box</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="classical.css">
+    <link rel="stylesheet" href="quantum-dashboard.css">
 </head>
 
-<body>
+<body class="classical-dashboard">
 
-    <!-- ================= HEADER ================= -->
-
-    <header class="topbar">
-
-        <div class="brand">
-            <div class="brand-mark">MQ</div>
-
-            <div>
-                <h1>MidnightQuantum</h1>
-                <p>Quantum Physics Learning Laboratory</p>
-            </div>
-        </div>
-
-        <div class="page-title">
-            <span>SIMULATION</span>
-            <strong>Particle in a Box</strong>
-        </div>
-
+    <header class="dashboard-topbar">
+      <a class="brand" href="index.html" aria-label="MidnightQuantum home">
+        <span class="brand-symbol" aria-hidden="true">⚛</span>
+        <span class="brand-copy"><strong>MidnightQuantum</strong><small>Interactive Quantum Mechanics Simulations</small></span>
+      </a>
+      <nav class="top-links" aria-label="Main navigation">
+        <a href="index.html"><span>⌂</span> Home</a>
+        <a href="#theory"><span>▤</span> Theory</a>
+        <a class="active" href="index.html"><span>∿</span> Simulations</a>
+        <a href="quiz.html"><span>▤</span> Quiz</a>
+        <a href="#about"><span>ⓘ</span> About</a>
+      </nav>
+      <div class="theme-mark" aria-label="Purple and blue theme"><span>☾</span><span>☼</span></div>
     </header>
-
-
+    <div class="dashboard-layout">
+      <aside class="sidebar">
+        <p class="sidebar-label">SIMULATIONS</p>
+        <a class="side-link" href="classical.html"><span>⌁</span> Classical Potential Well</a>
+        <a class="side-link active" href="index.html"><span>∿</span> Quantum: Particle in a Box <b>›</b></a>
+        <a class="side-link" href="doublewell.html"><span>♧</span> Double Well Potential</a>
+        <a class="side-link" href="doublewell.html#time-evolution"><span>◷</span> Time Evolution</a>
+        <a class="side-link" href="index.html#energy-levels"><span>▥</span> Energy Levels</a>
+        <a class="side-link" href="comparison.html"><span>⚖</span> Classical vs Quantum</a>
+        <div class="sidebar-divider"></div>
+        <p class="sidebar-label">LEARNING</p>
+        <a class="side-link" href="index.html#learning-activity"><span>♧</span> Learning Activities</a>
+        <a class="side-link" href="quiz.html"><span>▤</span> Quiz &amp; Assessment</a>
+        <div class="sidebar-art" aria-hidden="true"><div class="planet planet-one"></div><div class="planet planet-two"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><p>From equations to exploration,<br>from curiosity to understanding.</p></div>
+      </aside>
+      <div class="dashboard-main quantum-main">
     <!-- ================= MAIN ================= -->
 
     <main class="main-container">
+        <section class="page-intro quantum-intro" id="theory"><div><span class="eyebrow">QUANTUM MECHANICS</span><h1>Quantum Particle in a Box</h1><p>Explore how the wavefunction, probability density, and discrete energy levels depend on quantum number <i>n</i> and box length <i>L</i>.</p></div><div class="mini-well" aria-label="Infinite potential well illustration"><div class="mini-equation"><i>V(x)</i> = <span>0 &nbsp; 0 &lt; x &lt; L<br>∞ &nbsp; otherwise</span></div><div class="mini-walls"><span class="mini-ball"></span></div><div class="mini-axis"><span>0</span><span><i>x</i></span><span><i>L</i></span></div></div></section>
 
 
         <!-- ================= SIMULATION AREA ================= -->
@@ -384,7 +395,7 @@
 
         <!-- ================= EXPERIMENT MODE ================= -->
 
-        <section class="experiment-section">
+        <section class="experiment-section" id="learning-activity">
 
             <div class="experiment-header">
 
@@ -430,43 +441,73 @@
             </div>
 
 
-            <div class="prediction-options">
+            
+<div class="prediction-options">
+    <button class="prediction" data-answer="increase">
+        Energy increases
+    </button>
 
-                <button class="prediction">
-                    Energy increases
-                </button>
+    <button class="prediction" data-answer="decrease">
+        Energy decreases
+    </button>
 
-                <button class="prediction">
-                    Energy decreases
-                </button>
+    <button class="prediction" data-answer="same">
+        Energy stays the same
+    </button>
+</div>
 
-                <button class="prediction">
-                    Energy stays the same
-                </button>
+<div id="predictionFeedback" class="prediction-feedback" aria-live="polite"></div>
 
-            </div>
 
         </section>
 
+<section class="experiment-compare">
+    <h2>Experiment & Compare</h2>
+    <p>Compare the energy before and after changing the box length.</p>
 
-    </main>
+    <button id="saveInitialEnergy" type="button">
+        Save Initial Energy
+    </button>
+
+    <p id="initialEnergyResult">Initial energy: Not recorded</p>
+    <p id="energyComparison">
+        Save the initial energy, then change the box length.
+    </p>
+</section>
+
+<section class="energy-analysis" id="energy-levels">
+    <h2>Energy vs Box Length</h2>
+    <p>
+    The energy of the particle is inversely proportional
+    to the square of the box length: E ∝ 1/L².
+</p>
+
+<div class="chart-card">
+    <canvas id="energyChart" width="800" height="350"></canvas>
+</div>
+
+<p id="energyChartExplanation">
+    Change the box length to observe how the energy changes.
+</p>
+</section>
+
+</main>
+
+
+   
 
 
     <!-- ================= FOOTER ================= -->
 
-    <footer>
-
-        <span>
-            MidnightQuantum
-        </span>
-
-        <span>
-            Interactive Quantum Mechanics
-        </span>
-
+    <footer class="dashboard-footer" id="about">
+        <span>MidnightQuantum</span>
+        <span>Interactive Quantum Mechanics</span>
+        <a href="classical.html">Explore Classical Simulation →</a>
     </footer>
+      </div>
+    </div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 
 </body>

@@ -1000,3 +1000,80 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* ===== MidnightQuantum: Energy Chart Polish ===== */
+
+.chart-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f7f7ff 100%);
+    border: 1px solid #e5e7f5;
+    border-radius: 20px;
+    padding: 24px;
+    margin-top: 20px;
+    box-shadow: 0 12px 32px rgba(70, 75, 150, 0.08);
+    overflow: hidden;
+}
+
+.chart-card canvas {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #ffffff 0%, #fafaff 100%);
+}
+
+.energy-analysis h2 {
+    color: #27245f;
+    font-size: 1.65rem;
+    font-weight: 750;
+    letter-spacing: -0.4px;
+    margin-bottom: 12px;
+}
+
+.energy-analysis > p {
+    color: #68708a;
+    font-size: 0.98rem;
+    line-height: 1.8;
+    max-width: 760px;
+}
+
+#energyChartExplanation {
+    margin-top: 16px;
+    padding: 14px 18px;
+    background: #f1f0ff;
+    color: #5146a5;
+    border-left: 4px solid #8b7cf6;
+    border-radius: 10px;
+    line-height: 1.7;
+}
+
+
+/* ===== Shared navigation for MidnightQuantum pages ===== */
+.site-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 5%;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--border);
+}
+.site-nav a {
+    display: inline-block;
+    padding: 9px 14px;
+    border-radius: 10px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 650;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.site-nav a:hover, .site-nav a[aria-current="page"] {
+    color: var(--blue);
+    background: var(--blue-light);
+}
+@media (max-width: 600px) {
+    .site-nav { gap: 4px; padding: 10px 3%; }
+    .site-nav a { padding: 8px 10px; font-size: 12px; }
+}

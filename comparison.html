@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MidnightQuantum | Classical vs Quantum</title>
+<link rel="stylesheet" href="classical.css">
+<style>
+.compare-wrap{max-width:1180px;margin:0 auto}.compare-intro{margin-bottom:22px}.compare-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.compare-card{background:#fff;border:1px solid #e1e5fb;border-radius:18px;padding:22px;box-shadow:0 8px 24px rgba(47,62,151,.06);min-width:0}.compare-card h2,.compare-card h3{color:#25378f;margin-top:0}.compare-card p,.compare-card li{line-height:1.65;color:#59649b}.compare-tag{display:inline-block;border-radius:999px;padding:5px 10px;background:#f0efff;color:#5146c7;font-size:.78rem;font-weight:700;margin-bottom:10px}.compare-controls{display:grid;gap:16px;margin:18px 0}.compare-control label{display:flex;justify-content:space-between;gap:10px;font-weight:650;color:#394579;margin-bottom:8px}.compare-control input[type=range]{width:100%;accent-color:#6559d9}.compare-result{border-radius:14px;background:#f7f7ff;padding:16px;margin-top:14px}.compare-result strong{color:#26368a}.compare-number{font-size:1.7rem;font-weight:750;color:#5146c7}.compare-note{font-size:.86rem;color:#69739b}.compare-chart{width:100%;height:250px;display:block;background:#fcfcff;border:1px solid #e6e8fa;border-radius:12px}.predict-options{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.predict-options button,.compare-btn{border:1px solid #d9dcf5;border-radius:10px;padding:10px 13px;background:#fff;color:#394579;font-weight:650;cursor:pointer}.predict-options button.selected,.compare-btn{background:#ecebff;border-color:#9289ee}.compare-btn{width:100%;margin-top:10px}.compare-feedback{padding:12px;border-radius:10px;background:#f6f5ff;color:#414b80;line-height:1.6;min-height:44px}.compare-textarea{width:100%;min-height:95px;resize:vertical;border:1px solid #d9dcf5;border-radius:12px;padding:12px;font:inherit;box-sizing:border-box}.compare-link{color:#5146df;font-weight:700;text-decoration:none}.compare-footer{margin-top:24px}@media(max-width:760px){.compare-grid{grid-template-columns:1fr}.compare-card{padding:17px}.compare-number{font-size:1.45rem}}
+</style></head>
+<body class="classical-dashboard">
+<header class="dashboard-topbar"><a class="brand" href="index.html"><span class="brand-symbol">⚛</span><span class="brand-copy"><strong>MidnightQuantum</strong><small>Exploring Classical and Quantum Potential Wells</small></span></a><nav class="top-links"><a href="index.html">⌂ Home</a><a href="classical.html">∿ Simulations</a><a class="active" href="comparison.html">⚖ Compare</a><a href="quiz.html">▤ Quiz</a></nav><div class="theme-mark"><span>☾</span><span>☼</span></div></header>
+<div class="dashboard-layout"><aside class="sidebar"><p class="sidebar-label">LEARNING TOOLS</p><a class="side-link" href="classical.html"><span>⌁</span> Classical Potential Well</a><a class="side-link" href="index.html"><span>∿</span> Quantum: Particle in a Box</a><a class="side-link active" href="comparison.html"><span>⚖</span> Classical vs Quantum</a><a class="side-link" href="quiz.html"><span>▤</span> Quiz & Assessment</a><div class="sidebar-art"><p>“Same question,<br>different models.”</p></div></aside>
+<main class="dashboard-main compare-wrap">
+<section class="page-intro compare-intro"><div><h1>Classical vs Quantum</h1><p>Explore how the two models describe a particle in a well. Adjust the parameters, compare the energy descriptions, and explain what changes.</p></div></section>
+<section class="compare-grid">
+<article class="compare-card"><span class="compare-tag">MODEL A</span><h2>Classical particle</h2><p>In this simplified classical model, the particle has a definite position and velocity. Its energy is a continuous parameter rather than a set of quantized levels.</p><ul><li>We can choose a range of energy values.</li><li>The particle follows a trajectory in the model.</li><li>Changing the box length alone does not force the selected classical energy to a particular value.</li></ul><div class="compare-controls"><div class="compare-control"><label for="classicalEnergy">Selected classical energy <output id="classicalEnergyOut">4.0</output></label><input id="classicalEnergy" type="range" min="0.5" max="10" step="0.5" value="4"></div></div><div class="compare-result"><div class="compare-note">User-selected continuous parameter</div><div class="compare-number"><span id="classicalEnergyValue">4.0</span> <small>model energy units</small></div></div><p><a class="compare-link" href="classical.html">Open Classical Simulation →</a></p></article>
+<article class="compare-card"><span class="compare-tag">MODEL B</span><h2>Quantum particle in a box</h2><p>The quantum model describes the particle using a wavefunction. For an ideal one-dimensional infinite box, the allowed stationary-state energies depend on quantum number and box length.</p><div class="compare-controls"><div class="compare-control"><label for="boxLength">Box length, L <output id="boxLengthOut">2.0</output></label><input id="boxLength" type="range" min="1" max="5" step="0.5" value="2"></div><div class="compare-control"><label for="quantumN">Quantum number, n <output id="quantumNOut">1</output></label><input id="quantumN" type="range" min="1" max="4" step="1" value="1"></div></div><div class="compare-result"><div class="compare-note">Dimensionless example: ħ = 1 and m = 1</div><div class="compare-number">E<sub>n</sub> = <span id="quantumEnergyValue">1.234</span></div><div class="compare-note">Using Eₙ = n²π²ħ²/(2mL²); not SI joules or electronvolts.</div></div><p><a class="compare-link" href="index.html">Open Quantum Simulation →</a></p></article>
+</section>
+<section class="compare-card" style="margin-top:18px"><h2>Compare the quantum energy levels</h2><p>This chart updates with the box length. It illustrates that energy levels are discrete and that each level decreases as the box becomes wider, for a fixed quantum number.</p><canvas id="compareChart" class="compare-chart" aria-label="Quantum energy levels for quantum numbers one through four" role="img"></canvas><p class="compare-note">The chart uses dimensionless model values with ħ = 1 and m = 1. It is a teaching illustration, not a measured result.</p></section>
+<section class="compare-grid" style="margin-top:18px">
+<article class="compare-card"><span class="compare-tag">LEARNING ACTIVITY</span><h2>Predict → Test → Explain</h2><p>Before changing the box length, predict what happens to the quantum energy for the same quantum number when L increases.</p><div class="predict-options" id="comparePrediction"><button type="button" data-answer="higher">It becomes higher</button><button type="button" data-answer="lower">It becomes lower</button><button type="button" data-answer="same">It stays the same</button></div><button class="compare-btn" id="testPrediction" type="button">Check my prediction</button><div class="compare-feedback" id="compareFeedback" aria-live="polite">Choose one prediction, then check it.</div></article>
+<article class="compare-card"><h2>Explain what you learned</h2><p>Write one or two sentences comparing the models. Mention whether energy is continuous or quantized, and what changing L does to the quantum energy.</p><textarea id="compareReflection" class="compare-textarea" placeholder="I noticed that the classical model... In the quantum model..."></textarea><button class="compare-btn" id="saveCompareReflection" type="button">Save my observation on this page</button><p class="compare-note" id="compareSaveStatus" aria-live="polite">Your observation stays in this page for the current session; it is not sent to a server.</p></article>
+</section>
+<section class="compare-card" style="margin-top:18px"><h2>Key idea</h2><p><strong>Classical:</strong> the model allows a continuous range of energy values. <strong>Quantum:</strong> the ideal particle-in-a-box model has discrete allowed energy levels, with Eₙ ∝ n²/L². These statements apply to the simplified models described here.</p><p><a class="compare-link" href="quiz.html">Test your understanding →</a></p></section>
+<footer class="dashboard-footer compare-footer"><span>MidnightQuantum</span><span>Classical and Quantum Mechanics</span><a href="index.html">Back to Quantum Simulation</a></footer>
+</main></div>
+<script>
+(() => {
+ const length = document.getElementById('boxLength');
+ const nSlider = document.getElementById('quantumN');
+ const lengthOut = document.getElementById('boxLengthOut');
+ const nOut = document.getElementById('quantumNOut');
+ const quantumOut = document.getElementById('quantumEnergyValue');
+ const classical = document.getElementById('classicalEnergy');
+ const classicalOut = document.getElementById('classicalEnergyOut');
+ const classicalValue = document.getElementById('classicalEnergyValue');
+ const canvas = document.getElementById('compareChart');
+ const ctx = canvas.getContext('2d');
+ let selectedPrediction = '';
+ let lastLength = Number(length.value);
+ const quantumEnergy = (n, L) => (n*n*Math.PI*Math.PI)/(2*L*L);
+ const fmt = value => Number(value).toFixed(3);
+ function drawChart(){
+   const rect = canvas.getBoundingClientRect();
+   const dpr = window.devicePixelRatio || 1;
+   canvas.width = Math.max(320, Math.floor(rect.width*dpr));
+   canvas.height = Math.floor(250*dpr);
+   ctx.setTransform(dpr,0,0,dpr,0,0);
+   const w=canvas.width/dpr, h=canvas.height/dpr;
+   ctx.clearRect(0,0,w,h);
+   const pad={l:42,r:16,t:18,b:32};
+   const plotW=w-pad.l-pad.r, plotH=h-pad.t-pad.b;
+   const vals=[1,2,3,4].map(n=>quantumEnergy(n,Number(length.value)));
+   const maxY=Math.max(10, ...vals)*1.08;
+   ctx.strokeStyle='#e6e8f6'; ctx.lineWidth=1;
+   for(let i=0;i<=4;i++){const y=pad.t+plotH*i/4;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(w-pad.r,y);ctx.stroke();ctx.fillStyle='#66709a';ctx.font='11px Arial';ctx.fillText((maxY*(1-i/4)).toFixed(1),5,y+4);}
+   ctx.strokeStyle='#7d79cb';ctx.lineWidth=2;
+   vals.forEach((v,i)=>{const x=pad.l+plotW*(i+1)/5;const y=pad.t+plotH*(1-v/maxY);ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);ctx.fillStyle='#7166d8';ctx.fill();ctx.fillStyle='#404a80';ctx.font='11px Arial';ctx.fillText('n='+ (i+1),x-10,h-10);ctx.fillText(v.toFixed(2),x-14,y-10);});
+   ctx.fillStyle='#4b568a';ctx.font='12px Arial';ctx.fillText('Energy (model units)',pad.l,12);
+ }
+ function updateQuantum(){
+   const L=Number(length.value), n=Number(nSlider.value);
+   lengthOut.value=L.toFixed(1); nOut.value=String(n); quantumOut.textContent=fmt(quantumEnergy(n,L)); drawChart();
+ }
+ length.addEventListener('input',()=>{lastLength=Number(length.value);updateQuantum();});
+ nSlider.addEventListener('input',updateQuantum);
+ classical.addEventListener('input',()=>{classicalOut.value=Number(classical.value).toFixed(1);classicalValue.textContent=Number(classical.value).toFixed(1);});
+ document.querySelectorAll('#comparePrediction button').forEach(button=>button.addEventListener('click',()=>{selectedPrediction=button.dataset.answer;document.querySelectorAll('#comparePrediction button').forEach(b=>b.classList.toggle('selected',b===button));document.getElementById('compareFeedback').textContent='Prediction selected. Click “Check my prediction” to compare it with the model.';}));
+ document.getElementById('testPrediction').addEventListener('click',()=>{const feedback=document.getElementById('compareFeedback');if(!selectedPrediction){feedback.textContent='Please choose a prediction first.';return;}if(selectedPrediction==='lower'){feedback.textContent='Correct. From Eₙ ∝ 1/L², increasing L lowers the energy for the same quantum number n.';}else{feedback.textContent='Not quite. For the same quantum number, Eₙ ∝ 1/L², so increasing L lowers the energy. Try changing L and watch the value and chart.';}});
+ document.getElementById('saveCompareReflection').addEventListener('click',()=>{const field=document.getElementById('compareReflection');const status=document.getElementById('compareSaveStatus');if(!field.value.trim()){status.textContent='Write a short observation before saving it.';return;}status.textContent='Observation saved on this page for the current session. It has not been uploaded or sent anywhere.';});
+ window.addEventListener('resize',drawChart); updateQuantum();
+})();
+</script>
+</body></html>

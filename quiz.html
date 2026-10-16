@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MidnightQuantum | Learning Assessment</title>
     <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Quantum Simulation</a>
+        <a href="classical.html">Classical Simulation</a>
+        <a href="quiz.html" aria-current="page">Assessment</a>
+    </nav>
 
     <header class="topbar">
         <div class="brand-mark">MQ</div>
@@ -45,6 +51,13 @@
                 <p>Practice quantum physics with feedback.</p>
                 <span class="card-link">Start practice →</span>
             </button>
+
+            <button class="menu-card" id="surveyCard" type="button">
+                <span class="card-icon">04</span>
+                <h3>Learning Feedback</h3>
+                <p>Share how clear and useful the learning activities felt.</p>
+                <span class="card-link">Give feedback →</span>
+            </button>
         </section>
 
         <section id="quizSection" class="quiz-panel hidden">
@@ -76,6 +89,34 @@
             </div>
         </section>
 
+        <section id="surveySection" class="quiz-panel hidden">
+            <div class="quiz-heading">
+                <div><p class="eyebrow">USER EVALUATION</p><h2>Learning Feedback</h2></div>
+                <button id="surveyBackButton" class="secondary-button" type="button">← Back</button>
+            </div>
+            <p class="survey-intro">This short questionnaire asks about your experience using MidnightQuantum. It is a prototype feedback form, not a validated psychological or educational scale.</p>
+            <form id="feedbackSurvey" class="feedback-survey">
+                <label>1. The explanations were easy to understand.
+                    <select name="clarity" required><option value="">Choose a response</option><option>Strongly disagree</option><option>Disagree</option><option>Neither agree nor disagree</option><option>Agree</option><option>Strongly agree</option></select>
+                </label>
+                <label>2. The sliders and graphs helped me explore the physics concepts.
+                    <select name="interaction" required><option value="">Choose a response</option><option>Strongly disagree</option><option>Disagree</option><option>Neither agree nor disagree</option><option>Agree</option><option>Strongly agree</option></select>
+                </label>
+                <label>3. I can explain one difference between the classical and quantum models.
+                    <select name="understanding" required><option value="">Choose a response</option><option>Strongly disagree</option><option>Disagree</option><option>Neither agree nor disagree</option><option>Agree</option><option>Strongly agree</option></select>
+                </label>
+                <label>4. The learning activities encouraged me to make a prediction before testing.
+                    <select name="prediction_activity" required><option value="">Choose a response</option><option>Strongly disagree</option><option>Disagree</option><option>Neither agree nor disagree</option><option>Agree</option><option>Strongly agree</option></select>
+                </label>
+                <label>5. What was most helpful, confusing, or worth improving?
+                    <textarea name="open_feedback" rows="4" required placeholder="Write your comments here..."></textarea>
+                </label>
+                <p class="privacy-note">Your answers stay in this browser until you export them. They are not automatically sent anywhere. Do not enter your name or other identifying information if you want to keep the feedback anonymous.</p>
+                <div class="quiz-actions"><button id="saveSurveyButton" class="primary-button" type="button">Save feedback on this device</button><button id="exportSurveyButton" class="secondary-button hidden" type="button">Export feedback CSV</button></div>
+                <p id="surveyStatus" aria-live="polite" class="muted"></p>
+            </form>
+        </section>
+
         <section id="resultSection" class="result-panel hidden">
             <p class="eyebrow">ASSESSMENT RESULT</p>
             <h2 id="resultTitle">Test completed</h2>
@@ -83,6 +124,7 @@
             <p id="resultMessage"></p>
             <button id="retryButton" class="primary-button">Try again</button>
             <button id="homeButton" class="secondary-button">Back to home</button>
+            <button id="exportButton" class="secondary-button hidden" type="button">Export result CSV</button>
         </section>
     </main>
 
@@ -91,6 +133,7 @@
     </footer>
 
     <script src="quiz.js"></script>
+    <script>document.getElementById('surveyBackButton')?.addEventListener('click', () => { document.getElementById('surveySection').classList.add('hidden'); document.querySelector('.menu-grid').classList.remove('hidden'); });</script>
 </body>
 </html>
 ```

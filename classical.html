@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MidnightQuantum | Classical Potential Well</title>
+  <link rel="stylesheet" href="classical.css">
+</head>
+<body class="classical-dashboard">
+  <header class="dashboard-topbar">
+    <a class="brand" href="index.html" aria-label="MidnightQuantum home">
+      <span class="brand-symbol" aria-hidden="true">⚛</span>
+      <span class="brand-copy"><strong>MidnightQuantum</strong><small>Exploring Classical and Quantum Potential Wells</small></span>
+    </a>
+    <nav class="top-links" aria-label="Main navigation">
+      <a href="index.html"><span>⌂</span> Home</a>
+      <a href="index.html#theory"><span>▤</span> Theory</a>
+      <a class="active" href="classical.html"><span>∿</span> Simulations</a>
+      <a href="quiz.html"><span>▤</span> Quiz</a>
+      <a href="index.html#about"><span>ⓘ</span> About</a>
+    </nav>
+    <div class="theme-mark" aria-label="MidnightQuantum purple and blue theme"><span>☾</span><span>☼</span></div>
+  </header>
+
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <p class="sidebar-label">SIMULATIONS</p>
+      <a class="side-link active" href="classical.html"><span>⌁</span> Classical Potential Well <b>›</b></a>
+      <a class="side-link" href="index.html"><span>∿</span> Quantum: Particle in a Box</a>
+      <a class="side-link" href="doublewell.html"><span>♧</span> Double Well Potential</a>
+      <a class="side-link" href="doublewell.html#time-evolution"><span>◷</span> Time Evolution</a>
+      <a class="side-link" href="index.html#energy-levels"><span>▥</span> Energy Levels</a>
+      <a class="side-link" href="comparison.html"><span>⚖</span> Classical vs Quantum</a>
+      <div class="sidebar-divider"></div>
+      <p class="sidebar-label">LEARNING</p>
+      <a class="side-link" href="#learning-activity"><span>♧</span> Learning Activities</a>
+      <a class="side-link" href="quiz.html"><span>▤</span> Quiz &amp; Assessment</a>
+      <div class="sidebar-art" aria-hidden="true"><div class="planet planet-one"></div><div class="planet planet-two"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><p>“Same potential well,<br>two different worlds.”</p></div>
+    </aside>
+
+    <main class="dashboard-main">
+      <section class="page-intro">
+        <div><span class="eyebrow">CLASSICAL MECHANICS</span><h1>Classical Potential Well</h1><p>Explore the motion of a classical particle confined in a one-dimensional potential well, and compare it with the quantum case.</p></div>
+        <div class="mini-well" aria-label="Diagram of a particle inside a potential well"><div class="mini-equation"><i>V(x)</i> = <span>{ 0&nbsp;&nbsp; 0 &lt; x &lt; L<br>∞&nbsp;&nbsp; otherwise</span></div><div class="mini-walls"><span class="mini-ball"></span><span class="arrow arrow-left">←</span><span class="arrow arrow-right">→</span></div><div class="mini-axis"><span>0</span><span><i>x</i></span><span><i>L</i></span></div></div>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel controls-panel">
+          <div class="panel-heading"><h2>Simulation Controls</h2><span class="tiny-icon">☷</span></div>
+          <div class="slider-control"><label for="widthSlider">Well width <i>L</i><output id="widthOutput" for="widthSlider">2.0</output></label><input id="widthSlider" type="range" min="0.5" max="5" step="0.1" value="2"><div class="range-labels"><span>0.5 nm</span><span>5.0 nm</span></div></div>
+          <div class="slider-control"><label for="energySlider">Initial kinetic energy <i>K</i><output id="energyOutput" for="energySlider">0.8</output></label><input id="energySlider" type="range" min="0.1" max="5" step="0.1" value="0.8"><div class="range-labels"><span>0.1 eV</span><span>5.0 eV</span></div></div>
+          <div class="slider-control"><label for="positionSlider">Initial position <i>x₀</i><output id="positionInitialOutput" for="positionSlider">0.5</output></label><input id="positionSlider" type="range" min="0" max="1" step="0.01" value="0.25"><div class="range-labels"><span>0</span><span><i>L</i></span></div></div>
+          <div class="direction-control"><span>Initial direction</span><label><input type="radio" name="direction" value="1" checked> Right (→)</label><label><input type="radio" name="direction" value="-1"> Left (←)</label></div>
+          <div class="button-row"><button id="playPauseButton" class="btn-primary" type="button">▶ &nbsp; Pause</button><button id="resetButton" class="btn-secondary" type="button">↻ &nbsp; Reset</button></div>
+          <p class="control-footnote">Idealized model: fixed mass and elastic reflections at the walls.</p>
+        </article>
+
+        <article class="panel motion-panel">
+          <div class="panel-heading"><h2>Particle Motion</h2><span class="legend-dot"><i></i> Classical trajectory</span></div>
+          <div class="motion-stage"><canvas id="classicalCanvas" aria-label="Animated classical particle bouncing elastically between potential well walls"></canvas></div>
+          <div class="motion-axis"><span>0</span><span>Position <i>x</i> (nm)</span><span><i>L</i> = <b id="axisWidthOutput">2.0</b> nm</span></div>
+          <p id="motionStatus" class="status-line" aria-live="polite">Particle is moving between the two walls.</p>
+        </article>
+
+        <article class="panel energy-panel">
+          <div class="panel-heading"><h2>Energy Information</h2></div>
+          <div class="energy-item"><span>Potential energy <i>V(x)</i></span><strong>0 eV <small>(inside the well)</small></strong></div>
+          <div class="energy-item"><span>Kinetic energy <i>K</i></span><strong><b id="kineticOutput">0.80</b> eV</strong></div>
+          <div class="energy-item"><span>Total energy <i>E = K + V</i></span><strong><b id="totalOutput">0.80</b> eV</strong></div>
+          <div class="energy-formula"><i>K = ½mv²</i><small>For fixed mass, greater kinetic energy means greater speed.</small></div>
+        </article>
+
+        <article class="panel graph-panel position-graph-panel"><div class="panel-heading"><h2>Position and Velocity vs Time</h2></div><div class="graph-legend"><span class="purple-key">Position <i>x(t)</i></span><span class="blue-key">Velocity <i>v(t)</i></span></div><canvas id="timeGraph" aria-label="Position and velocity versus time graph"></canvas><div class="graph-axis-caption">Time <i>t</i> (model seconds)</div></article>
+        <article class="panel graph-panel energy-graph-panel"><div class="panel-heading"><h2>Energy vs Position</h2></div><div class="graph-legend"><span class="purple-key">Potential energy <i>V(x)</i></span><span class="blue-key">Kinetic energy <i>K(x)</i></span></div><canvas id="energyGraph" aria-label="Potential and kinetic energy versus position graph"></canvas><div class="graph-axis-caption">Position <i>x</i> (nm)</div></article>
+
+        <article class="panel activity-panel" id="learning-activity"><div class="panel-heading"><h2>Predict → Experiment → Observe</h2></div><p class="activity-question">What happens to the particle's speed when its kinetic energy increases?</p><div class="activity-steps"><div class="step-card"><span class="step-number">1</span><strong>Predict</strong><p>Choose an answer before changing the controls.</p><div class="prediction-options"><button type="button" class="prediction-option" data-answer="slower">Slower</button><button type="button" class="prediction-option" data-answer="faster">Faster</button><button type="button" class="prediction-option" data-answer="same">Same speed</button></div></div><div class="step-card"><span class="step-number">2</span><strong>Experiment</strong><p>Adjust the energy slider and run the simulation.</p><button type="button" id="tryEnergyButton" class="text-button">Increase energy ↗</button></div><div class="step-card"><span class="step-number pink">3</span><strong>Observe</strong><p id="predictionFeedback" aria-live="polite">Watch how the motion changes as you adjust the energy.</p></div></div></article>
+        <article class="panel key-idea-panel"><div class="panel-heading"><h2>💡 Key Idea (Classical)</h2></div><ul><li>Inside an ideal flat well, the particle moves at constant speed.</li><li>Total energy is continuous and can take a range of positive values.</li><li>At the walls (<i>x</i> = 0, <i>L</i>), the particle reflects elastically.</li></ul><a class="compare-link" href="comparison.html">Explore Classical vs Quantum →</a></article>
+      </section>
+      <footer class="dashboard-footer"><span>MidnightQuantum</span><span>Classical Mechanics Learning Simulation</span><a href="index.html">Back to Quantum Simulation</a></footer>
+    </main>
+  </div>
+  <script src="classical.js"></script>
+</body>
+</html>
